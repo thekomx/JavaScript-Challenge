@@ -223,3 +223,11 @@ select {
     opacity: 1;
   }
 }
+
+.table_country_cell, .table_state_cell, #ufocountry, #ufostate{
+  text-transform: uppercase;
+}
+
+.table_city_cell, #ufocity{
+  text-transform: capitalize;
+}

@@ -23,6 +23,15 @@ function displayData(tableData){
         Object.entries(tData).forEach(([key, value])=>{
             let cell = row.append('td');
             cell.text(value);
+            if(key=='country'){
+                cell.attr('class', 'table_country_cell');
+            }
+            if(key=='state'){
+                cell.attr('class', 'table_state_cell');
+            }
+            if(key=='city'){
+                cell.attr('class', 'table_city_cell');
+            }
         })
     })
 }
@@ -34,6 +43,8 @@ function eventRunner(idate){
         let filtered_data = tableData.filter(tdata => tdata.datetime == strInputDate);
 
         displayData(filtered_data);
+    }else if(idate.trim().length == 0){
+        displayData(tableData);
     }else{
         tbody.selectAll('tr').remove();
         tbody.append('tr').append('td').text('Invalid Date Format!');
